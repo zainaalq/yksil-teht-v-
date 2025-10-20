@@ -1,6 +1,6 @@
 import { fetchRestaurants, fetchDailyMenu, fetchWeeklyMenu } from "./api.js";
 
-// =============== 🔐 LOGIN & SIGN UP ===============
+// LOGIN & SIGN UP 
 const authSection = document.getElementById("authSection")!;
 const signUpSection = document.getElementById("signUpSection")!;
 const appContainer = document.getElementById("app")!;
@@ -20,7 +20,7 @@ const switchToLogin = document.getElementById("switchToLogin") as HTMLButtonElem
 
 const themeToggle = document.getElementById("themeToggle") as HTMLInputElement;
 
-// Näkymä sivun latauksessa
+
 const savedUser = localStorage.getItem("metropoliaUser");
 if (savedUser) {
   authSection.style.display = "none";
@@ -33,7 +33,7 @@ if (savedUser) {
   appContainer.style.display = "none";
 }
 
-// Teema
+
 (function initTheme() {
   const savedTheme = localStorage.getItem("theme") || "light";
   document.body.classList.toggle("dark", savedTheme === "dark");
@@ -45,7 +45,7 @@ themeToggle?.addEventListener("change", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-// Vaihto: Login <-> Sign Up
+
 switchToSignUp?.addEventListener("click", () => {
   authSection.style.display = "none";
   signUpSection.style.display = "block";
@@ -55,7 +55,7 @@ switchToLogin?.addEventListener("click", () => {
   signUpSection.style.display = "none";
 });
 
-// ====== Kirjautuminen (Sign In) ======
+
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = emailInput.value.trim().toLowerCase();
@@ -84,7 +84,7 @@ loginForm.addEventListener("submit", (e) => {
   init();
 });
 
-// ====== Sign Up ======
+
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = signUpEmail.value.trim().toLowerCase();
@@ -105,7 +105,7 @@ signUpForm.addEventListener("submit", (e) => {
     return;
   }
 
-  users[email] = password; // (Demo) ei oikeaa SSO:ta
+  users[email] = password; 
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("metropoliaUser", email);
 
@@ -120,7 +120,7 @@ logoutBtn.addEventListener("click", () => {
   location.reload();
 });
 
-// =============== 🍴 APP LOGIC ===============
+
 let restaurants: any[] = [];
 let filtered: any[] = [];
 let currentRestaurant: any = null;
@@ -133,7 +133,7 @@ async function init() {
   initDialog();
 }
 
-// --- Favorites ---
+
 function getUserKey(): string {
   const user = localStorage.getItem("metropoliaUser") || "guest";
   return `favorites:${user}`;
@@ -151,7 +151,7 @@ function toggleFavorite(id: string) {
   saveFavorites(favs);
 }
 
-// --- Filters ---
+
 function setupFilters() {
   const citySelect = document.getElementById("cityFilter") as HTMLSelectElement;
   const companySelect = document.getElementById("companyFilter") as HTMLSelectElement;
@@ -205,7 +205,7 @@ function applyFilters() {
   renderRestaurants();
 }
 
-// --- Render ---
+
 function renderRestaurants() {
   const list = document.getElementById("restaurantsList")!;
   list.innerHTML = "";
@@ -245,7 +245,7 @@ function renderRestaurants() {
   });
 }
 
-// --- Dialog ---
+
 function initDialog() {
   const dialog = document.getElementById("restaurantDialog") as HTMLDialogElement;
   const closeBtn = document.getElementById("closeDialog") as HTMLButtonElement;
