@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opiskelijaravintolat</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- 🔐 LOGIN -->
+    <section id="authSection" class="login-container" style="display:block;">
+      <h2>Tervetuloa opiskelijaravintoloihin!</h2>
+      <p class="welcome-text">
+        Tämä sovellus on suunniteltu <strong>Metropolian opiskelijoille ja henkilökunnalle</strong>.
+        Näet helposti päivän ja viikon ruokalistat.
+      </p>
+
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Sähköposti (@metropolia.fi)" required />
+        <input type="password" id="password" placeholder="Salasana" required />
+        <button type="submit" id="loginBtn">Kirjaudu sisään</button>
+      </form>
+      <p id="loginError" class="error-msg"></p>
+
+      <p style="margin-top:1rem;">
+        Eikö sinulla ole tiliä?
+        <button type="button" id="switchToSignUp">Luo uusi tili</button>
+      </p>
+    </section>
+
+    <!-- 🆕 SIGN UP -->
+    <section id="signUpSection" class="login-container" style="display:none;">
+      <h2>Luo uusi tili</h2>
+      <p class="welcome-text">Rekisteröidy Metropolian sähköpostilla.</p>
+
+      <form id="signUpForm">
+        <input type="email" id="signUpEmail" placeholder="Sähköposti (@metropolia.fi)" required />
+        <input type="password" id="signUpPassword" placeholder="Salasana (min 4)" required />
+        <button type="submit">Luo tili</button>
+      </form>
+
+      <p id="signUpError" class="error-msg"></p>
+      <button id="switchToLogin" style="margin-top:1rem;">Palaa kirjautumiseen</button>
+    </section>
+
+    <!-- 🏫 APP -->
+    <div id="app" style="display:none;">
+      <header class="header">
+        <h1>🎓 Opiskelijaravintolat</h1>
+
+        <!-- Dark mode toggle -->
+        <div style="position:absolute; left:1rem; top:0.8rem;">
+          <input type="checkbox" id="themeToggle" class="theme-checkbox" />
+          <label for="themeToggle" class="theme-label" title="Vaihda teema">
+            <span class="fa-moon">🌙</span>
+            <span class="fa-sun">☀️</span>
+            <span class="ball"></span>
+          </label>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">Kirjaudu ulos</button>
+      </header>
+
+      <main class="container">
+        <!-- Filters -->
+        <section class="filters">
+          <input type="text" id="searchInput" placeholder="Etsi ravintolaa..." />
+
+          <label for="cityFilter">Kaupunki:</label>
+          <select id="cityFilter">
+            <option value="all">Kaikki</option>
+          </select>
+
+          <label for="companyFilter">Yritys:</label>
+          <select id="companyFilter">
+            <option value="all">Kaikki</option>
+          </select>
+
+          <label class="fav-filter">
+            <input type="checkbox" id="onlyFavorites" />
+            Näytä suosikit
+          </label>
+
+          <button id="resetFilters">Reset</button>
+        </section>
+
+        <!-- List -->
+        <section class="restaurants">
+          <h2>Ravintolat</h2>
+          <div id="restaurantsList" class="restaurant-grid"></div>
+        </section>
+      </main>
+
+      <!-- Dialog -->
+      <dialog id="restaurantDialog" class="dialog">
+        <div class="dialog-content">
+          <button id="closeDialog" class="close-btn">✖</button>
+
+          <div class="dialog-header">
+            <h3 id="dialogTitle"></h3>
+            <button id="favToggleDialog" class="fav-btn" title="Lisää suosikiksi">☆</button>
+          </div>
+
+          <p id="dialogInfo"></p>
+
+          <div class="mode-buttons">
+            <button id="dailyBtn" class="active">Päivä</button>
+            <button id="weeklyBtn">Viikko</button>
+          </div>
+
+          <div id="dialogMenu"></div>
+        </div>
+      </dialog>
+
+      <footer class="footer">
+        © 2025 Metropolia – Student Restaurants Project
+      </footer>
+    </div>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

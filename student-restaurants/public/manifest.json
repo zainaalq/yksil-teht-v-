@@ -1,0 +1,23 @@
+{
+  "name": "Opiskelijaravintolat",
+  "short_name": "Ravintolat",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0078d7",
+  "description": "Sovellus, joka näyttää opiskelijaravintoloiden päivän ja viikon ruokalistat.",
+  "icons": [
+    {
+      "src": "/images/yksilötehtäväikoni.1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/yksilötehtäväikoni.2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

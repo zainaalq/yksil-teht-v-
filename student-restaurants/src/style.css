@@ -1,0 +1,255 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #111;
+}
+
+/* HEADER */
+.header {
+  background: #c40000;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+}
+.logout-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: #fff;
+  color: #c40000;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.logout-btn:hover { background: #ffecec; }
+.container { padding: 1rem 2rem; }
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  background: #f8f8f8;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.filters label { font-weight: bold; }
+.filters select,
+.filters input,
+#resetFilters {
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #333;
+  font-size: 0.95rem;
+}
+#resetFilters {
+  background: #c40000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#resetFilters:hover { background: #a00000; }
+
+/* Restaurant Cards */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.restaurant-card {
+  background: #f7f7f7;
+  border: 2px solid #111;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.restaurant-card:hover {
+  background: #ffecec;
+  transform: scale(1.02);
+}
+
+/* Suosikit */
+.fav-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+.fav-btn {
+  border: 2px solid #111;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: 0.15s;
+}
+.fav-btn:hover { background: #ffecec; }
+.fav-active {
+  color: #c40000;
+  border-color: #c40000;
+  background: #fff5f5;
+}
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.restaurant-card.favorite {
+  border-color: #c40000;
+  box-shadow: 0 0 0 2px #ffd6d6 inset;
+}
+
+/* Dialog */
+.dialog {
+  border: none;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #c40000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* Päivä/viikko -painikkeet */
+.mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.mode-buttons button {
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.mode-buttons button.active { background: #c40000; }
+
+/* Menu-listat */
+.menu-item {
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+.menu-day h4 {
+  color: #c40000;
+  margin-top: 10px;
+}
+
+/* Login / Signup */
+.login-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border: 2px solid #c40000;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.login-container h2 { color: #c40000; margin-bottom: 0.5rem; }
+.login-container p.welcome-text { font-size: 0.95rem; color: #444; margin-bottom: 1rem; }
+.login-container form { display: flex; flex-direction: column; gap: 0.8rem; }
+.login-container input {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+}
+.login-container button {
+  background: #c40000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.login-container button:hover { background: #a00000; }
+.error-msg { color: #c40000; margin-top: 0.5rem; font-size: 0.9rem; }
+
+/* Footer */
+.footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 20px;
+}
+
+/* Dark Mode */
+.theme-checkbox { opacity: 0; position: absolute; }
+.theme-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 6px;
+  justify-content: space-between;
+  align-items: center;
+}
+.fa-moon { color: #f1c40f; }
+.fa-sun  { color: #f39c12; }
+.theme-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+.theme-checkbox:checked + .theme-label .ball { transform: translateX(24px); }
+
+body.dark { background: #111; color: #eee; }
+body.dark .header { background: #222; color: #fff; }
+body.dark .filters {
+  background: #222;
+  box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+}
+body.dark .restaurant-card { background: #1c1c1c; border-color: #888; color: #eee; }
+body.dark .restaurant-card:hover { background: #2a2a2a; }
+body.dark .login-container { background: #222; color: #eee; border-color: #888; }
+body.dark .footer { background: #222; color: #ccc; }
+body.dark select,
+body.dark input,
+body.dark button {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #666;
+}
+
+/* Media */
+@media (max-width: 600px) {
+  .filters { flex-direction: column; align-items: stretch; }
+  .restaurant-grid { grid-template-columns: 1fr; }
+}
